@@ -1,0 +1,54 @@
+<head>
+	{% load static%}
+	<link href="{% static 'tinymce/css/prism.css'%}" rel="stylesheet">
+    <link href="{% static 'tinymce/css/prism.css'%}" rel="stylesheet">
+     <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+   <script>
+     .responsive-img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    }
+  </script>
+
+
+
+    <meta charset="UTF-8">
+    <title>Homepage</title>      
+  {% block css %}
+  
+  {% endblock css %}
+
+</head>
+<body style="background-color: lightblue;">
+
+{% include "main/includes/navbar.html" %}
+{% include "main/includes/messages.html" %}
+
+
+<div class= "container">
+  <br>
+{% block content %}
+
+{% endblock content %}
+</div>
+
+
+
+
+{% block javascript %}
+
+{% endblock javascript %}
+
+ 
+
+</body>
+
+<script src= "{% static 'tinymce/js/prism.js'  %}"></script>
+

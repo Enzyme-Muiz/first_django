@@ -1,0 +1,54 @@
+{% extends "main/header.html" %}
+
+{% load materializecss %}
+
+
+{% block css %}
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/css/materialize.min.css" integrity="sha256-qj3p6P1fJIV+Ndv7RW1ovZI2UhOuboj9GcODzcNFIN8=" crossorigin="anonymous" />
+  
+
+
+
+{% endblock css %}
+
+
+{% block content%}
+
+<div class="container">
+ <div class="row">
+ <div class="col s12 m6 l9">
+  {% load static %}
+     
+  <img class="responsive-img z-depth-4" src="{% static 'main/neural.png' %}"/>
+  <br>
+  <br>
+
+  <div class="card-panel hoverable teal lighten-2 center-align"> THE PLAN IS TO GET ENOUGH PICTURES OF THE LADS SO AS TO BUILD A MACHINE
+  LEARNING ALGORITHM TO CLASSIFY THEM.</div>
+    
+
+
+{% endblock content %}
+
+
+
+{% block javascript %}
+   <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/js/materialize.min.js" integrity="sha256-SrBfGi+Zp2LhAvy9M1bWOCXztRU9Ztztxmu5BcYPcPE=" crossorigin="anonymous"></script>
+
+<script>
+$(document).ready(function(){
+
+  // Initialize materialize data picker
+  $('.datepicker').datepicker({'format': 'yyyy-mm-dd'});
+  $('select').formSelect();
+
+});
+ </script>
+
+{% endblock javascript %}
