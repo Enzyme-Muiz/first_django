@@ -1,7 +1,11 @@
 <nav>
     <div class="nav-wrapper blue">
       <a href="/" class="brand-logo">ML-pictures</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <!--<a href="/" class="sidebar-trigger">
+        <i class= "material-icons">menu</i>
+      </a>-->
+      
+      <ul id="nav-mobile" class="right">
         <li><a href="/">Home</a></li>
         {% if user.is_authenticated %}
         <li><a href="/image_upload">Image_upload</a></li>
@@ -15,3 +19,10 @@
       </ul>
     </div>
 </nav>
+
+<!--<ul class="sidebar" id="">
+  
+
+
+
+</ul>-->
