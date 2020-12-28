@@ -1,11 +1,11 @@
 <nav>
     <div class="nav-wrapper blue">
       <a href="/" class="brand-logo">ML-pictures</a>
-      <!--<a href="/" class="sidebar-trigger">
+      <a href="/" class="sidenav-trigger" data-target="mobile-links">
         <i class= "material-icons">menu</i>
-      </a>-->
+      </a>
       
-      <ul id="nav-mobile" class="right">
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="/">Home</a></li>
         {% if user.is_authenticated %}
         <li><a href="/image_upload">Image_upload</a></li>
@@ -20,9 +20,15 @@
     </div>
 </nav>
 
-<!--<ul class="sidebar" id="">
-  
-
-
-
-</ul>-->
+<ul class="sidenav" id="mobile-links">
+     <li><a href="/">Home</a></li>
+        {% if user.is_authenticated %}
+      <li><a href="/image_upload">Image_upload</a></li>
+      <li><a href="/logout">Logout</a></li>
+        
+        {% else %}
+      <li><a href="/register">Register</a></li>
+      <li><a href="/login">login</a></li>
+        
+        {% endif %}
+</ul>
