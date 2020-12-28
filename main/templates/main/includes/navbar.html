@@ -1,17 +1,17 @@
 <nav>
     <div class="nav-wrapper blue">
-      <a href="/" class="brand-logo">First Django</a>
+      <a href="/" class="brand-logo">ML-pictures</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="/">Home</a></li>
         {% if user.is_authenticated %}
-           <li><a href="/image_upload">Image_upload</a></li>
-           <li><a href="/logout">Logout</a></li>
+        <li><a href="/image_upload">Image_upload</a></li>
+        <li><a href="/logout">Logout</a></li>
         
         {% else %}
-          <li><a href="/register">Register</a></li>
-          <li><a href="/login">login</a></li>
+        <li><a href="/register">Register</a></li>
+        <li><a href="/login">login</a></li>
         
         {% endif %}
       </ul>
     </div>
-  </nav>
+</nav>
