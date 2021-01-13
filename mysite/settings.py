@@ -135,7 +135,7 @@ os.path.join(BASE_DIR, "access"),
     )
 
 
-MEDIA_ROOT =  os.path.join(BASE_DIR, 'media') 
+#MEDIA_ROOT =  os.path.join(BASE_DIR, 'media') 
 MEDIA_URL = '/media/'
 
 
@@ -162,5 +162,6 @@ AWS_SECRET_ACCESS_KEY = "/PbdcQJfOXVy1wxuJ8DXlwfbcZSXMJ+WJT/Tb6XB"
 AWS_STORAGE_BUCKET_NAME = "muizdeen-raji"
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
+AWS_S3_REGION_NAME = 'eu-west-2'
 
 DEFAULT_FILE_STORAGES= "storages.backends.s3boto3.S3boto3Storage" 
