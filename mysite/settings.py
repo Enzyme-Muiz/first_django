@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'tinymce',
      'multiselectfield',
      'materializecssform',
+     'storages',
 ]
 
 MIDDLEWARE = [
@@ -150,3 +151,16 @@ EMAIL_HOST_USER= 'muizdeenoyebode@gmail.com'
 EMAIL_HOST_PASSWORD= 'eilxdogdcfboqias'
 EMAIL_USE_TLS= True
 EMAIL_USE_SSL= False
+
+
+
+
+
+
+AWS_ACCESS_KEY_ID = "AKIAWBR3D522WOOSCSMK"
+AWS_SECRET_ACCESS_KEY = "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"
+AWS_STORAGE_BUCKET_NAME = "django-user"
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+
+DEFAULT_FILE_STORAGES= "storages.backends.s3boto3.S3boto3Storage" 
