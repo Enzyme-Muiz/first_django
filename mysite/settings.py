@@ -87,8 +87,8 @@ DATABASES = {
         'NAME': 'df9fls4hvep8fl',
         'HOST': 'ec2-79-125-59-247.eu-west-1.compute.amazonaws.com',
         'POST': 5432,
-        'USER': 'pquazvjlmvufbd',
-        'PASSWORD': 'eb749ae7275e6f7269b274f48d16dc5072e2fb6d8bfebf8788619fb9a88dc4dc'
+        'USER': os.environ.get("heroku_postgres_name"),
+        'PASSWORD': os.environ.get("postgresPWD")
     }
 }
 # Password validation
@@ -148,7 +148,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST =  'smtp.gmail.com'
 EMAIL_PORT= 587
 EMAIL_HOST_USER= 'muizdeenoyebode@gmail.com'
-EMAIL_HOST_PASSWORD= 'eilxdogdcfboqias'
+EMAIL_HOST_PASSWORD= os.environ.get("EMAIL_HOST_PASSWORD")
 EMAIL_USE_TLS= True
 EMAIL_USE_SSL= False
 
@@ -157,9 +157,9 @@ EMAIL_USE_SSL= False
 
 
 
-AWS_ACCESS_KEY_ID = ""
-AWS_SECRET_ACCESS_KEY = ""
-AWS_STORAGE_BUCKET_NAME = "muizdeen-raji"
+AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY")
+AWS_STORAGE_BUCKET_NAME = os.environ.get("AWS_STORAGE_BUCKET_NAME")
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
 AWS_S3_REGION_NAME = 'eu-west-2'
