@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.utils import timezone
+from .models import login_time, image_upload
 
 #from django.shortcuts import render
 from .forms import UserForm, NewUserForm, ImageForm
@@ -16,6 +18,7 @@ from django.contrib import messages
 
 
 def homepage(request):
+
     submitbutton= request.POST.get("submit")
 
     firstname=''
@@ -47,7 +50,7 @@ def homepage(request):
 
   
 # Create your views here. 
-def image_upload(request): 
+def image_uploads(request): 
     list_name= ["Mubaarak", "Nabeel", "Abdul-Mujeeb"]
   
     if request.method == 'POST': 
@@ -114,6 +117,8 @@ def login_request(request):
             if user is not None:
                 login(request, user)
                 messages.info(request, f"You are now logged in as {username}")
+                user=request.user
+                login_time.objects.create(user= request.user)
                 return redirect('homepage')
             else:
                 messages.error(request, "invalid username and password")
@@ -130,5 +135,13 @@ def login_request(request):
         {"form": form}
         )
 
-    
-
+def account(request): 
+    login_number = login_time.objects.filter(user= request.user).count()
+    Mubaarak_picture = (image_upload.objects.filter(name= 'Mubaarak').count()*100)//100
+    Nabeel_picture = (image_upload.objects.filter(name= 'Nabeel').count()*100)//100
+    Abdul_Mujeeb_picture = (image_upload.objects.filter(name= 'Abdul-Mujeeb').count()*100)//100
+    context= {"number":login_number, "numberi": str(Mubaarak_picture)+ "%", "numberii": str(Nabeel_picture)+ "%", "numberiii": str(Abdul_Mujeeb_picture)+ "%",
+    "class_mub": "c100 p"+str(Mubaarak_picture),
+    "class_nab":"c100 p"+str(Nabeel_picture),
+    "class_abs":"c100 p"+str(Abdul_Mujeeb_picture)} 
+    return render(request, 'main/account.html', context)

@@ -22,11 +22,12 @@ appname = "main"
 
 urlpatterns = [
     path('', views.homepage, name= "homepage"),
-    path('image_upload', views.image_upload, name = 'image_upload'), 
+    path('image_uploads', views.image_uploads, name = 'image_uploads'), 
     path('success', views.success, name = 'success'),
     path('register', views.register),
     path('logout', views.logout_request, name= "logout"),
     path('login', views.login_request, name= "login"),
+    path('account', views.account, name= "account"),
     
     
     
