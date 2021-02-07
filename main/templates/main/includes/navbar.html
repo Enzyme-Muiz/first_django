@@ -24,7 +24,8 @@
 <ul class="sidenav" id="mobile-links">
      <li><a href="/">Home</a></li>
         {% if user.is_authenticated %}
-      <li><a href="/image_upload">Image_upload</a></li>
+      <li><a href="/image_uploads">Image_upload</a></li>
+      <li><a href="/account">{{user.username}}</a></li>
       <li><a href="/logout">Logout</a></li>
         
         {% else %}
