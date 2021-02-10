@@ -23,11 +23,11 @@ class image_uploadadmin(admin.ModelAdmin):
 
 
 
-	#fields=[
-	#"user_id",
-	#"name",
-	#"Img",
-	#]
+	fields=[
+	"user_id",
+	"name",
+	"Img",
+	]
 	
 	def save_model(self, request, obj, form, change):
 		if not obj.user:
