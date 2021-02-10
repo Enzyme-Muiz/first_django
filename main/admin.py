@@ -23,21 +23,21 @@ class image_uploadadmin(admin.ModelAdmin):
 
 
 
-	fields=[
-	"user_id",
-	"name",
-	"Img",
-	]
+	#fields=[
+	#"user_id",
+	#"name",
+	#"Img",
+	#]
 	
-	def save_model(self, request, obj, form, change):
-		if not obj.user:
-			obj.user = request.user
-		obj.save()
+	#def save_model(self, request, obj, form, change):
+	#	if not obj.user:
+	#		obj.user = request.user
+	#	obj.save()
 
-	def save_model(self, request, obj, form, change):
-		if getattr(obj, 'user_id', None) is None:
-		  obj.user_id = request.user.id
-		obj.save()
+	#def save_model(self, request, obj, form, change):
+	#	if getattr(obj, 'user_id', None) is None:
+	#	  obj.user_id = request.user.id
+	#	obj.save()
 
 class login_time_admin(admin.ModelAdmin):
 	list_display= ("date", "user")

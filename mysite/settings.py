@@ -172,3 +172,22 @@ DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True     
 SESSION_COOKIE_AGE = 600                   
 SESSION_SAVE_EVERY_REQUEST = True 
+
+
+
+LOGGING = {
+   'version': 1,
+   'disable_existing_loggers': False,
+   'handlers': {
+       'console': {
+           'class': 'logging.StreamHandler',
+       },
+   }, 
+   'loggers': {
+       'django': {
+           'handlers': ['console'],
+            'level': os.getenv('DJANGO_LOG_LEVEL', 'DEBUG'),
+       },
+   },
+}
+
