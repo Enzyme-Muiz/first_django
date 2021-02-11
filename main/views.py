@@ -119,7 +119,9 @@ def login_request(request):
                 messages.info(request, f"You are now logged in as {username}")
                 user=request.user
                 login_time.objects.create(user= request.user)
-                return redirect('homepage')
+                response= redirect('homepage')
+                response.set_cookie('username', username) 
+                return response
             else:
                 messages.error(request, "invalid username and password")
         else:
@@ -130,10 +132,17 @@ def login_request(request):
 
 
     form = AuthenticationForm()
-    return render(request,
+    if 'username' in request.COOKIES:
+       username = request.COOKIES['username']
+       return render(request,
         "main/login.html",
-        {"form": form}
+        {"form": form, "username" : username}
         )
+    else:
+        return render(request,
+        "main/login.html",
+        {"form": form,})
+
 
 def account(request): 
     login_number = login_time.objects.filter(user= request.user).count()
