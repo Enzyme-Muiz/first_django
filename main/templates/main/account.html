@@ -42,8 +42,45 @@
 <h2>Abdul-Mujeeb</h2>
 </div>
 </div>
+</div>
+
+
+
+<div class="row">
+<div class="col l6 m6 s6  offset-s3 offset-l3 offset-m3">
+
+<div class="responsive-img carousel carousel-slider">
+	
+{% for product in products %}
+     
+    <div class="carousel-item  img-holder" href="/{{forloop.counter}}">
+    <img src="{{product.Img.url}}">
+    <a class="link" href="/delete/{{product.id}}">button</a>
+    </div >
+
+
+   
+
+    
+
+{% endfor %}  
+  
 
 </div>
+
+
+
+        
+
+</div>
+</div>
+
+
+
+
+
+
+
 
 
 

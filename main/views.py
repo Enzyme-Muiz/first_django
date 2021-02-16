@@ -149,8 +149,20 @@ def account(request):
     Mubaarak_picture = (image_upload.objects.filter(name= 'Mubaarak').count()*100)//100
     Nabeel_picture = (image_upload.objects.filter(name= 'Nabeel').count()*100)//100
     Abdul_Mujeeb_picture = (image_upload.objects.filter(name= 'Abdul-Mujeeb').count()*100)//100
+    Products = image_upload.objects.all()
     context= {"number":login_number, "numberi": str(Mubaarak_picture)+ "%", "numberii": str(Nabeel_picture)+ "%", "numberiii": str(Abdul_Mujeeb_picture)+ "%",
     "class_mub": "c100 p"+str(Mubaarak_picture),
     "class_nab":"c100 p"+str(Nabeel_picture),
-    "class_abs":"c100 p"+str(Abdul_Mujeeb_picture)} 
+    "class_abs":"c100 p"+str(Abdul_Mujeeb_picture),
+    'products':Products} 
     return render(request, 'main/account.html', context)
+
+
+
+def delete(request, id):
+    image_upload.objects.get(id=id).delete()
+    return redirect(account)
+
+
+
+   

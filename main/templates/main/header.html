@@ -19,7 +19,16 @@
   {% block css %}
   
   {% endblock css %}
-
+<style>
+.img-holder {position: relative;}
+.img-holder .link {
+    position: absolute;
+    z-index: 10;
+    bottom: 10px; /*your button position*/
+    left: 10px; /*your button position*/
+    background: rgba(0,0,0,0.5);
+}
+</style>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -63,6 +72,12 @@
    $(document).ready(function(){
     $('.sidenav').sidenav();
   });
+
+   $('.carousel.carousel-slider').carousel({
+    fullWidth: true
+   });
+
+
 </script>
 
  
