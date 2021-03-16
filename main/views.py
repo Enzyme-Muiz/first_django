@@ -3,6 +3,13 @@ from django.http import HttpResponse
 from django.utils import timezone
 from .models import login_time, image_upload
 
+
+from rest_framework.views import APIView
+from django.shortcuts import get_object_or_404
+from rest_framework import serializers
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+
 #from django.shortcuts import render
 from .forms import UserForm, NewUserForm, ImageForm
 from .methods import Allah
@@ -162,7 +169,29 @@ def account(request):
 def delete(request, id):
     image_upload.objects.get(id=id).delete()
     return redirect(account)
+class IncredibleInputSerializer(serializers.Serializer):
+    model_input = serializers.CharField()
 
+class apisample(APIView):
 
+    def get(self, request):
+        serializer = IncredibleInputSerializer(data=request.query_params)
+        serializer.is_valid(raise_exception=True)
 
-   
+        # Get the model input
+        data = serializer.validated_data
+        model_input = data["model_input"]
+
+        # Perform the complex calculations
+        complex_result = model_input + "xyz"
+
+        # Return it in your custom format
+        return Response({
+            "complex_result": complex_result,
+        })
+@api_view(["GET"])
+def message(request):
+  a = request.query_params.get('a')
+  b = request.query_params.get('b')
+  return Response({"Print": "a = {}, b={}".format(a,b)})
+ 

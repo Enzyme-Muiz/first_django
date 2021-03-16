@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
+from rest_framework.urlpatterns import format_suffix_patterns
 from . import views
 appname = "main"
 
@@ -29,6 +30,9 @@ urlpatterns = [
     path('login', views.login_request, name= "login"),
     path('account', views.account, name= "account"),
     path('delete/<int:id>', views.delete, name= "delete"),
+    path('func', views.apisample.as_view(), name= "api_sample"),
+    path('message', views.message, name= "message"),
+    
     
     
     

@@ -1,1 +1,1 @@
-web: gunicorn mysite.wsgi --log-file -
+web: gunicorn mysite.wsgi --keep-alive 5 --log-level debug --log-file -
